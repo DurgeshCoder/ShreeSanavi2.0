@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {#    section 1#}
+    {% load static %}
+    <section id="hero-animated" class="hero-animated d-flex align-items-center">
+        <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
+             data-aos="zoom-out">
+            <img src="{% static '/img/custom/banner1.svg' %}" style="max-width: 380px;" class="img-fluid animated">
+            <h2>Welcome to <span>ShreeSanaviAcademy</span></h2>
+            <p>We shape your future by providing free and premium
+                <content class=""></content>
+            </p>
+            <div class="d-flex">
+                <a href="#about" class="btn-get-started scrollto">Get Learning ..</a>
+                <a href="https://www.youtube.com/watch?v=-VWn8Jh6VzU"
+                   class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            </div>
+        </div>
+    </section>
+
+
+    {% include 'home_popular_courses.html' %}
+
+    {% include 'home_testimonial.html' %}
+
+
+{% endblock %}
+
