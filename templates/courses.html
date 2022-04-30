@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container pb-5" style="margin-top: 100px;">
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="p-2">Categories</h3>
+                <div class="list-group" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+                        8 & 9 Standard
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        High School
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Intermediate School
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Programming Languages
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1"
+                       aria-disabled="true">Interview Preparation</a>
+                </div>
+                <div class="box  p-5 mt-5  " data-aos="zoom-in" data-aos-delay="200"
+                     style="height: 500px;background: #e2e2e2;">
+                    <h6>Ads Unit 1</h6>
+                </div>
+                <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
+                     style="height: 300px;background: #e2e2e2;">
+                    <h6>Ads Unit 2</h6>
+                </div>
+            </div>
+            {% load static %}
+            <div class="col-md-9">
+                <h3 class="p-2">Courses</h3>
+
+
+                <div class="row">
+                    {% for i in '012345678' %}
+                        <div class="col-md-4 ">
+
+
+                            <div class="card mt-2" data-aos="zoom-in" data-aos-delay="200">
+                                <img class="card-img-top" src="{% static '/img/custom/testimonial_background.jpg' %}"
+                                     alt="Card image cap">
+                                <div class="card-body">
+
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional
+                                        content.</p>
+                                    <a href="/learning" class="btn btn-primary">Start Learning</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

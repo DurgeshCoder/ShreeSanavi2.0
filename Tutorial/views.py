@@ -9,3 +9,15 @@ def home_page(request):
 
 def contact_page(request):
     return render(request, "contact.html", {})
+
+
+def about_page(request):
+    return render(request, "about.html", {})
+
+
+def course_page(request):
+    return render(request, 'courses.html', {})
+
+
+def learning_page(request):
+    return render(request, 'reading.html', {})
