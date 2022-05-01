@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container pb-5" style="margin-top: 100px;">
+    <div class="container-fluid pb-5" style="margin-top: 100px;">
 
 
         <div class="row">
@@ -87,9 +87,17 @@
                         </div>
                     </div>
                 </div>
+
+                {% for i in '12' %}
+                    <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
+                         style="height: 400px;background: #e2e2e2;">
+                        <h6>Ads Unit </h6>
+                    </div>
+
+                {% endfor %}
             </div>
             {% load static %}
-            <div class="col-md-9">
+            <div class="col-md-7">
 
 
                 <div class="row">
@@ -179,6 +187,17 @@
 
                 </div>
 
+            </div>
+
+
+            <div class="col-md-2">
+                {% for i in '12345' %}
+                    <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
+                         style="height: 400px;background: #e2e2e2;">
+                        <h6>Ads Unit </h6>
+                    </div>
+
+                {% endfor %}
             </div>
         </div>
 
