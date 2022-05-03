@@ -1,8 +1,30 @@
+body {
+    font-family: 'Roboto', sans-serif !Important;
+}
+
+
 .card {
     border-radius: 0 !important;
 }
 
 .list-group {
     border-radius: 0 !important;
+    box-shadow: 0px 0 25px rgba(var(--color-black-rgb), 0.1) !important;
+
+}
+
+
+.course {
+    box-shadow: 0px 0 25px rgba(var(--color-black-rgb), 0.1) !important;
+    border: 0 !important;
+    border-radius: 8px !important;
+}
+
+
+.course_logo {
+    max-height: 150px !important;
+    width: fit-content !important;
+    margin: 10px auto !important;
+
 
 }

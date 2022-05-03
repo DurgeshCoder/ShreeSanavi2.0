@@ -1,27 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container pb-5" style="margin-top: 100px;">
+    <div class="container-fluid pb-5" style="margin-top: 100px;">
 
 
         <div class="row">
             <div class="col-md-3">
-                <h3 class="p-2">Categories</h3>
+
                 <div class="list-group" data-aos="zoom-in" data-aos-delay="200">
-                    <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                        8 & 9 Standard
+
+                    <a href="/courses?cat=all" class="list-group-item list-group-item-action "
+                       aria-current="true">
+                        All
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        High School
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        Intermediate School
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        Programming Languages
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1"
-                       aria-disabled="true">Interview Preparation</a>
+
+                    {% for cat in categories %}
+                        <a href="/courses?cat={{ cat.title }}" class="list-group-item list-group-item-action "
+                           aria-current="true">
+                            {{ cat.title }}
+                        </a>
+                    {% endfor %}
+
                 </div>
                 <div class="box  p-5 mt-5  " data-aos="zoom-in" data-aos-delay="200"
                      style="height: 500px;background: #e2e2e2;">
@@ -34,29 +33,38 @@
             </div>
             {% load static %}
             <div class="col-md-9">
-                <h3 class="p-2">Courses</h3>
 
 
-                <div class="row">
-                    {% for i in '012345678' %}
-                        <div class="col-md-4 ">
+                <div class=" card-columns row">
+
+                    {% for c in courses %}
 
 
-                            <div class="card mt-2" data-aos="zoom-in" data-aos-delay="200">
-                                <img class="card-img-top" src="{% static '/img/custom/testimonial_background.jpg' %}"
-                                     alt="Card image cap">
-                                <div class="card-body">
+                        <div class="card course mt-4 me-3  " style="width: 30%" data-aos="zoom-in" data-aos-delay="200">
+                            <img class="card-img-top course_logo" src="/storage/{{ c.logo }}"
+                                 alt="Card image cap">
+                            <div class="card-body">
 
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="/learning" class="btn btn-primary">Start Learning</a>
+                                <h5 class="card-title " style="font-weight: bold">{{ c.title }}</h5>
+                                <p >
+                                    {{ c.description | truncatewords:18 }}
+                                </p>
+
+                                <div class="">
+                                    <a href="/learning" class="btn btn-primary btn-sm ">Start Learning</a>
+
                                 </div>
                             </div>
-
-
                         </div>
+
+
+
+                    {% empty %}
+
+                        <h4>No Course found in this category</h4>
+
                     {% endfor %}
+
 
                 </div>
 
