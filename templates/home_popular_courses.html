@@ -20,12 +20,18 @@
                             <div class="icon">
                                 <i class="bi bi-activity"></i>
                             </div>
-                            <a href="#" class="stretched-link">
+                            <a href="/{{ t.topic_set.first.url }} " class="stretched-link">
                                 <h3>{{ i.title }}</h3>
                             </a>
                             <p>
                                 {{ i.description | truncatewords:18 }}
                             </p>
+
+                            <div class="mt-3">
+                                <a href="/{{ t.topic_set.first.url }}" class="  custom_button btn-sm ">Start
+                                    Learning</a>
+
+                            </div>
                         </div>
                     </div>
                 </div><!-- End Service Item -->

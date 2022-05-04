@@ -1,5 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif !Important;
+    /*font-family: 'Roboto', sans-serif !Important;*/
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -11,6 +12,17 @@ body {
     border-radius: 0 !important;
     box-shadow: 0px 0 25px rgba(var(--color-black-rgb), 0.1) !important;
 
+}
+
+.list-group-item.active {
+    background: var(--color-primary) !important;
+    border: 0 !important;
+
+}
+
+.accordion-button:not(.collapsed) {
+    background: none !important;
+    color: var(--color-primary) !important;;
 }
 
 
@@ -28,3 +40,14 @@ body {
 
 
 }
+
+.custom_button {
+    font-size: 16px;
+    color: var(--color-white);
+    background: var(--color-primary);
+    padding: 8px 23px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-family: var(--font-secondary);
+}
+

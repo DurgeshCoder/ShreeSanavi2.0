@@ -37,5 +37,15 @@ def course_page(request):
     return render(request, 'courses.html', data)
 
 
-def learning_page(request):
-    return render(request, 'reading.html', {})
+def learning_page(request, topic_url):
+    topic = Topic.objects.get(url=topic_url)
+
+    units = Unit.objects.filter(course=topic.course)
+    print(topic)
+
+    data = {
+        "topic": topic,
+        "course": topic.course,
+        "units": units
+    }
+    return render(request, 'reading.html', data)

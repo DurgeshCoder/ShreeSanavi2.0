@@ -5,7 +5,7 @@
 
 
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 mt-4">
 
                 <div class="list-group" data-aos="zoom-in" data-aos-delay="200">
 
@@ -46,12 +46,13 @@
                             <div class="card-body">
 
                                 <h5 class="card-title " style="font-weight: bold">{{ c.title }}</h5>
-                                <p >
+                                <p>
                                     {{ c.description | truncatewords:18 }}
                                 </p>
 
                                 <div class="">
-                                    <a href="/learning" class="btn btn-primary btn-sm ">Start Learning</a>
+                                    <a href="/{{ c.topic_set.first.url }}" class="  custom_button btn-sm ">Start
+                                        Learning</a>
 
                                 </div>
                             </div>
