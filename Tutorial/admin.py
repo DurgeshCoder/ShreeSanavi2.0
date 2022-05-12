@@ -26,5 +26,8 @@ class TopicAdmin(admin.ModelAdmin):
     list_filter = ("course", "unit")
     list_per_page = 50
 
+    class Media:
+        js = ('tinyinject.js',)
+
 
 admin.site.register(Topic, TopicAdmin)
