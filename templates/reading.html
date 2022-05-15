@@ -94,4 +94,17 @@
         </div>
 
     </div>
+    <script>
+        const images = document.getElementsByTagName('img')
+        for (let i of images) {
+            i.className = 'img-fluid'
+        }
+        const iframes = document.getElementsByTagName('iframe')
+        for (let i of iframes) {
+            i.style.width = "100%";
+            i.style.height="450px"
+        }
+
+
+    </script>
 {% endblock %}
