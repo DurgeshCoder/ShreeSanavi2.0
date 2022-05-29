@@ -10,7 +10,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ("category",)
 
 
-admin.site.register(Course)
+admin.site.register(Course,CourseAdmin)
 
 
 class UnitAdmin(admin.ModelAdmin):
