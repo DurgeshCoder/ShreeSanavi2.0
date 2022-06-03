@@ -43,17 +43,25 @@ def course_page(request):
 
 
 def learning_page(request, topic_url):
-    topic = Topic.objects.get(url=topic_url)
+    try:
 
-    units = Unit.objects.filter(course=topic.course)
-    print(topic)
+        topic = Topic.objects.get(url=topic_url)
 
-    data = {
-        "topic": topic,
-        "course": topic.course,
-        "units": units
-    }
-    return render(request, 'reading.html', data)
+        units = Unit.objects.filter(course=topic.course)
+        print(topic)
+
+        data = {
+            "topic": topic,
+            "course": topic.course,
+            "units": units
+        }
+        return render(request, 'reading.html', data)
+    except:
+        return render(request, "not_found.html", {})
+
+
+def not_found(request, exception):
+    return render(request, "not_found.html", {})
 
 
 # uploading image
@@ -73,7 +81,8 @@ def upload_image(request):
     else:
         return HttpResponse("error")
 
-#deleting image
+
+# deleting image
 @csrf_exempt
 def delete_image(request):
     if request.method == 'POST':

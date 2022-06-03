@@ -10,6 +10,7 @@ urlpatterns = [
     path('contact', contact_page),
     path('about', about_page),
     path('courses', course_page),
-    path('<slug:topic_url>', learning_page)
+    path('not-found/', not_found),
+    path('<slug:topic_url>', learning_page),
 
 ]
