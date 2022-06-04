@@ -45,18 +45,21 @@
                                  alt="Card image cap">
                             <div class="card-body">
 
+
                                 <h5 class="card-title " style="font-weight: bold">{{ c.title }}</h5>
                                 <p>
                                     {{ c.description | truncatewords:18 }}
                                 </p>
 
                                 <div class="">
-                                    <a href="/{{ c.topic_set.first.url }}" class="  custom_button btn-sm ">Start
+                                    <a href="/{{ c.course.first.url }}" class="custom_button btn-sm ">Start
                                         Learning</a>
 
                                 </div>
                             </div>
                         </div>
+
+
 
 
 

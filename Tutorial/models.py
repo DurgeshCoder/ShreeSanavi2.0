@@ -24,6 +24,7 @@ class Course(models.Model):
         return self.title
 
 
+
 class Unit(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=500)
@@ -40,8 +41,8 @@ class Topic(models.Model):
     url = models.CharField(max_length=500)
     isLive = models.BooleanField(default=False)
 
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="course")
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE, related_name="unit")
 
     page_title = models.TextField(blank=True)
     page_keywords = models.TextField(blank=True)

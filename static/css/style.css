@@ -35,7 +35,7 @@ body {
 
 .course_logo {
     max-height: 150px !important;
-    width: fit-content !important;
+    width: auto !important;
     margin: 10px auto !important;
 
 

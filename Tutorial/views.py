@@ -3,7 +3,7 @@ from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
+import json
 from .models import *
 
 
@@ -20,10 +20,13 @@ def contact_page(request):
     return render(request, "contact.html", {})
 
 
+# about page
+
 def about_page(request):
     return render(request, "about.html", {})
 
 
+# course page
 def course_page(request):
     selected_cat = request.GET['cat']
 
@@ -42,6 +45,7 @@ def course_page(request):
     return render(request, 'courses.html', data)
 
 
+# learning page
 def learning_page(request, topic_url):
     try:
 
@@ -96,3 +100,13 @@ def delete_image(request):
         os.remove(full_path)
         return JsonResponse({'msg': 'done'})
     return JsonResponse({"msg": "error"})
+
+
+# get units of course
+@csrf_exempt
+def get_units_of_course(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        print(data)
+        units = Unit.objects.filter(course__id=data.get("value")).values()
+        return JsonResponse(json.dumps(list(units)), status=200, safe=False)

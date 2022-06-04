@@ -10,7 +10,7 @@ class CourseAdmin(admin.ModelAdmin):
     list_filter = ("category",)
 
 
-admin.site.register(Course,CourseAdmin)
+admin.site.register(Course, CourseAdmin)
 
 
 class UnitAdmin(admin.ModelAdmin):
@@ -27,7 +27,7 @@ class TopicAdmin(admin.ModelAdmin):
     list_per_page = 50
 
     class Media:
-        js = ('tinyinject.js',)
+        js = ('tinyinject.js', "topic.js")
 
 
 admin.site.register(Topic, TopicAdmin)
