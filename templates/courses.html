@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
+    {% include 'sidebar_content.html' %}
     <div class="container-fluid pb-5" style="margin-top: 100px;">
 
 
+    <span style="font-size:25px;cursor:pointer" class="btn btn-danger btn-sm d-md-none "
+          onclick="openNav()">&#9776; Menu
+            </span>
         <div class="row">
-            <div class="col-md-3 mt-4">
 
-                <div class="list-group" data-aos="zoom-in" data-aos-delay="200">
+
+            <div class="col-md-3 mt-sm-0 mt-md-4">
+                <div class="list-group" id="side_menu" data-aos="zoom-in" data-aos-delay="200">
 
                     <a href="/courses?cat=all" class="list-group-item list-group-item-action "
                        aria-current="true">
@@ -40,7 +47,7 @@
                     {% for c in courses %}
 
 
-                        <div class="card course mt-4 me-3  " style="width: 30%" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="card course mt-4 me-3  " data-aos="zoom-in" data-aos-delay="200">
                             <img class="card-img-top course_logo" src="/media/{{ c.logo }}"
                                  alt="Card image cap">
                             <div class="card-body">
@@ -76,4 +83,5 @@
         </div>
 
     </div>
+    <script src="{% static '/js/sidemenu.js' %}"></script>
 {% endblock %}

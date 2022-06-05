@@ -1,99 +1,108 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% include 'sidebar_content.html' %}
     <div class="container-fluid pb-5" style="margin-top: 100px;">
 
 
+
+    <span style="font-size:25px;cursor:pointer" class="btn btn-danger btn-sm d-md-none my-3 "
+          onclick="openNav()">&#9776; Menu
+            </span>
         <div class="row">
+            <div class="row">
 
 
-            <div class="col-md-3">
-                <div class="accordion" id="accordionExample">
+                <div class="col-md-3">
+                    <div class="accordion" id="side_menu">
 
-                    {% for u in units %}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne{{ u.id }}" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                    {{ u.title }}
-                                </button>
-                            </h2>
-                            <div id="collapseOne{{ u.id }}" class="accordion-collapse collapse show"
-                                 aria-labelledby="headingOne"
-                            >
-                                <div class="accordion-body p-0">
-                                    <div class="list-group">
+                        {% for u in units %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne{{ u.id }}" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                        {{ u.title }}
+                                    </button>
+                                </h2>
+                                <div id="collapseOne{{ u.id }}" class="accordion-collapse collapse show"
+                                     aria-labelledby="headingOne"
+                                >
+                                    <div class="accordion-body p-0">
+                                        <div class="list-group">
 
-                                        {% for t in u.unit.all %}
+                                            {% for t in u.unit.all %}
 
 
-                                            {% if t.isLive %}
-                                                {% if t.id == topic.id %}
-                                                    <a href="/{{ t.url }}"
-                                                       class="list-group-item list-group-item-action active "
-                                                       aria-current="true">
-                                                        {{ t.title }}
-                                                    </a>
+                                                {% if t.isLive %}
+                                                    {% if t.id == topic.id %}
+                                                        <a href="/{{ t.url }}"
+                                                           class="list-group-item list-group-item-action active "
+                                                           aria-current="true">
+                                                            {{ t.title }}
+                                                        </a>
 
-                                                {% else %}
-                                                    <a href="/{{ t.url }}"
-                                                       class="list-group-item list-group-item-action "
-                                                       aria-current="true">
-                                                        {{ t.title }}
-                                                    </a>
+                                                    {% else %}
+                                                        <a href="/{{ t.url }}"
+                                                           class="list-group-item list-group-item-action "
+                                                           aria-current="true">
+                                                            {{ t.title }}
+                                                        </a>
+                                                    {% endif %}
                                                 {% endif %}
-                                            {% endif %}
 
 
-                                        {% endfor %}
+                                            {% endfor %}
 
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                        {% endfor %}
+
+
+                    </div>
+
+                    {% for i in '12' %}
+                        <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
+                             style="height: 400px;background: #e2e2e2;">
+                            <h6>Ads Unit </h6>
                         </div>
 
                     {% endfor %}
-
-
                 </div>
-
-                {% for i in '12' %}
-                    <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
-                         style="height: 400px;background: #e2e2e2;">
-                        <h6>Ads Unit </h6>
-                    </div>
-
-                {% endfor %}
-            </div>
-            {% load static %}
-            <div class="col-md-7">
+                {% load static %}
+                <div class="col-md-7">
 
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="col-md-12">
-                        {{ topic.content | safe }}
+                        <div class="col-md-12">
+                            {{ topic.content | safe }}
+                        </div>
+
                     </div>
 
                 </div>
 
+
+                <div class="col-md-2">
+                    {% for i in '12345' %}
+                        <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
+                             style="height: 400px;background: #e2e2e2;">
+                            <h6>Ads Unit </h6>
+                        </div>
+
+                    {% endfor %}
+                </div>
             </div>
 
-
-            <div class="col-md-2">
-                {% for i in '12345' %}
-                    <div class="box  p-5 mt-5 " data-aos="zoom-in" data-aos-delay="200"
-                         style="height: 400px;background: #e2e2e2;">
-                        <h6>Ads Unit </h6>
-                    </div>
-
-                {% endfor %}
-            </div>
         </div>
-
     </div>
+
+    <script src="{% static '/js/sidemenu.js' %}"></script>
     <script>
         const images = document.getElementsByTagName('img')
         for (let i of images) {
@@ -102,7 +111,7 @@
         const iframes = document.getElementsByTagName('iframe')
         for (let i of iframes) {
             i.style.width = "100%";
-            i.style.height="450px"
+            i.style.height = "450px"
         }
 
 
